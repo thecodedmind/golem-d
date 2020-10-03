@@ -19,19 +19,19 @@ void main(string[] argv){
     writeln("Input sequence of commands, then send an empty line to process buffer.");
     writeln("End line with `.` to immediately send single line.");
     writeln("Interpreter commands start with `:`.");
-     
+    string prefix = "#";
     string[] lines;
     string line;
     while((line = readln()) !is null){
 	line = line.replace("\n", "");
 	if(line == "end" || line == ""){
 	  writeln(lines);
-	  g.processLineArray(lines, "#");
+	  g.processLineArray(lines, prefix);
 	  g.setVar("LINE", "0");
 	  while(lines.length > 0)
 	    lines = lines.remove(0);
 	}else{
-	  if(!line.startsWith("#")) line = "#"~line;
+	  //if(!line.startsWith("#") && !) line = "#"~line;
 	  if(line.endsWith(".")){
 	    line = line.stripRight(".");
 	    g.processCmdLn(line);
