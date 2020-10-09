@@ -24,9 +24,9 @@ void main(string[] argv){
     string line;
     while((line = readln()) !is null){
 	line = line.replace("\n", "");
-	if(line == "end" || line == ""){
+	if(line == ""){
 	  writeln(lines);
-	  g.processLineArray(lines, prefix);
+	  g.processLineArray(lines);
 	  g.setVar("LINE", "0");
 	  while(lines.length > 0)
 	    lines = lines.remove(0);
